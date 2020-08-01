@@ -1,0 +1,13 @@
+* {
+  --dark: rgb(40, 42, 63);
+  --light-dark: rgb(110, 112, 138);
+  --grey: rgb(154, 161, 177);
+  --light-grey: rgb(217, 219, 255);
+  --primary: rgb(80, 185, 99);
+  --red: rgb(236, 73, 73);
+  --light-red: rgb(244, 127, 102);
+  --orange: rgb(251, 175, 99);
+  --blue: rgb(78, 128, 193);
+  --light: rgb(244, 247, 250);
+  --white: rgb(255, 255, 255);
+}
