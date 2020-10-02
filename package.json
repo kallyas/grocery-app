@@ -11,6 +11,9 @@
     "type": "git",
     "url": "git+https://github.com/kallyas/grocery-app.git"
   },
+  "engines": {
+    "node": "^12.x"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
