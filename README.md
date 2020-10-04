@@ -108,9 +108,11 @@ Adds in a new single user into the Application.
 
 Logs in a single user into the Application
 
+
 | End Point             | Method | Params | Data Type |
 | --------------------- | ------ | ------ | --------- |
 | `/api/v1/auth/login`  | POST   | `none` | `none`    |
+
 
 - **Request Body**
 
