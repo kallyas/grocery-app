@@ -148,9 +148,10 @@ Logs in a single user into the Application
 ## Get User By ID
 
 Returns a single user by their Id
-| End Point | Method | Params | Data Type |
-| --------------------- | ------ | ------ | --------- |
-| `/api/v1/user/:id` | GET | `none` | `none` |
+
+| End Point          | Method | Params | Data Type |
+| ------------------ | ------ | ------ | --------- |
+| `/api/v1/user/:id` | GET    | `none` | `none`    |
 
 - **Request Headers**
 

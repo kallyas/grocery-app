@@ -13,7 +13,9 @@ const signUpCheck = (data) => {
 const loginCheck = (data) => {
   const validateSchema = joi.object({
     username: joi.string().min(4).required(),
+    email: joi.string().required(),
     password: joi.string().min(4).required(),
+    // phoneNumber: joi.string().min(10).required(),
   });
   return validateSchema.validate(data);
 };

@@ -36,12 +36,11 @@ let UserSchema = new Schema({
 
   phoneNumber: {
     type: String,
-    required: true,
     max: 10,
   },
   userLevel: {
     type: Number,
-    required: true,
+    default: 1,
   },
   createdAt: {
     type: Date,
