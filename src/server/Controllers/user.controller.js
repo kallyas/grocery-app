@@ -103,7 +103,9 @@ module.exports.deleteUser = async (req, res, next) => {
         Message: "Not Foud, User does not exist",
       });
     }
-    res.send(result);
+    res.send({
+      message: "User Deleted successfully!",
+    });
   } catch (error) {
     console.log(error.message);
     if (error instanceof mongoose.CastError) {
