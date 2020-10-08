@@ -9,6 +9,14 @@ let validateEmail = (email) => {
 };
 
 let UserSchema = new Schema({
+  firstName: {
+    type: String,
+    required: true,
+  },
+  lastName: {
+    type: String,
+    required: true,
+  },
   username: {
     type: String,
     required: true,
@@ -37,6 +45,9 @@ let UserSchema = new Schema({
   phoneNumber: {
     type: String,
     max: 10,
+  },
+  location: {
+    type: String,
   },
   userLevel: {
     type: Number,
