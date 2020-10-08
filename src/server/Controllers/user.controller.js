@@ -49,16 +49,17 @@ module.exports.findUserById = async (req, res, next) => {
     const user = await User.findById(id).select("-password");
     // const user = await User.findOne({ _id: id });
     if (!user) {
-      res.json({
+      res.status(404).send({
         status: 404,
         message: "User Does not Exist",
       });
+    } else {
+      res.send(user);
     }
-    res.send(user);
   } catch (error) {
     console.log(error.message);
     if (error instanceof mongoose.CastError) {
-      res.json({
+      res.status(400).send({
         status: 400,
         Message: "Bad Request, Invalid User Id",
       });
@@ -98,10 +99,11 @@ module.exports.deleteUser = async (req, res, next) => {
     const result = await User.findByIdAndDelete(id);
     // console.log(result);
     if (!result) {
-      res.json({
+      res.status(404).send({
         status: 404,
         Message: "Not Foud, User does not exist",
       });
+      return;
     }
     res.send({
       message: "User Deleted successfully!",
