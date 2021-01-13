@@ -3,6 +3,7 @@ const express = require("express");
 const router = express.Router();
 
 const userController = require("../Controllers/user.controller");
+const profileController = require("../Controllers/profile.controller");
 const auth = require("../helpers/auth");
 
 //Default Route
@@ -26,5 +27,7 @@ router.put("/user/:id", auth.authenticateToken, userController.updateUser);
 router.get("/user/:id", auth.authenticateToken, userController.findUserById);
 //login
 router.post("/auth/login", userController.Login);
+
+router.get("/profiles", profileController.getProfiles);
 
 module.exports = router;
