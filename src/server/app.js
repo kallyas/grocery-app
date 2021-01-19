@@ -6,6 +6,7 @@ const app = express();
 
 const Router = require("./Routes/user.route");
 // const search = require("./Routes/search.route");
+const Profile = require("./Routes/user.route");
 const middlewares = require("./middlewares");
 const RateLimit = require("./helpers/rateLimit");
 
@@ -23,7 +24,7 @@ app.use(function (req, res, next) {
 });
 
 app.use(RateLimit);
-app.use("/api/v1/", Router);
+app.use("/api/v1/", Router, Profile);
 app.use(middlewares.notFound);
 app.use(middlewares.errorHandler);
 
