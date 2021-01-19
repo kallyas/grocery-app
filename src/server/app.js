@@ -6,7 +6,7 @@ const app = express();
 
 const Router = require("./Routes/user.route");
 // const search = require("./Routes/search.route");
-const Profile = require("./Routes/user.route");
+const Profile = require("./Routes/profile.route");
 const middlewares = require("./middlewares");
 const RateLimit = require("./helpers/rateLimit");
 
