@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-require("../config/cloudinary.config")
+require("../config/cloudinary.config");
 const auth = require("../helpers/auth");
 const profileController = require("../Controllers/profile.controller");
 const upload = require("../helpers/multer");
@@ -8,7 +8,7 @@ const upload = require("../helpers/multer");
 router.get("/profiles", profileController.viewProfiles);
 router.post(
   "/profiles/create",
-  upload.single("image"),
+
   profileController.createProfile
 );
 router.get(
