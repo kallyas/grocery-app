@@ -19,7 +19,7 @@
   },
   "homepage": "https://kallyas.github.io/grocery-app/",
   "dependencies": {
-    "bcrypt": "^5.0.0",
+    "bcrypt": "^5.0.1",
     "cors": "^2.8.5",
     "helmet": "^4.1.1",
     "joi": "^17.2.1",
