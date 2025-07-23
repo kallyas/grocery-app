@@ -6,8 +6,8 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
-    "dev": "ts-node --esm src/index.ts",
-    "dev:watch": "ts-node --esm --watch src/index.ts",
+    "dev": "node --loader ts-node/esm src/index.ts",
+    "dev:watch": "node --loader ts-node/esm --watch src/index.ts",
     "start": "node dist/index.js",
     "clean": "rm -rf dist",
     "build:clean": "npm run clean && npm run build",
