@@ -1,14 +1,14 @@
-const mongoose = require("mongoose");
-const bcrypt = require("bcrypt");
-const Schema = mongoose.Schema;
+import mongoose, { Schema, model } from 'mongoose';
+import bcrypt from 'bcrypt';
+import { IUser } from '../../types/user.types.js';
 
 // email validation credit: https://stackoverflow.com/questions/18022365/mongoose-validate-email-syntax/28396238
-let validateEmail = (email) => {
-  var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+const validateEmail = (email: string): boolean => {
+  const re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
   return re.test(email);
 };
 
-let UserSchema = new Schema({
+const UserSchema = new Schema<IUser>({
   username: {
     type: String,
     required: true,
@@ -19,21 +19,20 @@ let UserSchema = new Schema({
     trim: true,
     lowercase: true,
     unique: true,
-    required: "Email address is required",
-    validate: [validateEmail, "Please fill a valid email address"],
+    required: [true, 'Email address is required'],
+    validate: [validateEmail, 'Please fill a valid email address'],
     match: [
       /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
-      "Please fill a valid email address",
+      'Please fill a valid email address',
     ],
   },
   password: {
     type: String,
     required: true,
-    set: (value) => {
+    set: (value: string): string => {
       return bcrypt.hashSync(value, 10);
     },
   },
-
   phoneNumber: {
     type: String,
     required: true,
@@ -49,11 +48,13 @@ let UserSchema = new Schema({
   },
   userType: {
     type: String,
-    default: "user",
+    default: 'user',
   },
 });
 
 // create search index
-UserSchema.index({ "$**": "text" });
-//export the model
-module.exports = mongoose.model("User", UserSchema);
+UserSchema.index({ '$**': 'text' });
+
+// export the model
+const User = model<IUser>('User', UserSchema);
+export default User;
