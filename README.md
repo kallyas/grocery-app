@@ -1,46 +1,106 @@
-# Grocery App API
+# Grocery App API (TypeScript + ESM)
 
 # Table Of Contents
 
 1. [Project Overview](#project-overview)
 2. [Usage](#usage)
    1. [Pre-requisites](#pre-requisites)
-3. [Contributors](#contributors)
+   2. [Development Setup](#development-setup)
+   3. [Building and Running](#building-and-running)
+3. [API Documentation](#api-documentation)
+4. [Contributors](#contributors)
 
 <br>
 
 # **Project Overview**
 
-Grocery-API is an API(Back End for grocery Application).
+Grocery-API is a modern TypeScript-based REST API for a grocery application. The project has been converted from JavaScript to TypeScript with ESM (ECMAScript Modules) support for improved type safety, code maintainability, and modern development practices.
+
+## **Technology Stack**
+
+- **TypeScript** - For type safety and better development experience
+- **Node.js** with **ESM** - Modern JavaScript module system
+- **Express.js** - Web framework
+- **MongoDB** with **Mongoose** - Database and ODM
+- **JWT** - Authentication
+- **Bcrypt** - Password hashing
+- **Joi** - Input validation
 
 # Environment Variables
 
 - **PORT** -- `server port number`
-
 - **DB_URL** -- `database URL`
-
+- **DB_URL_DEV** -- `development database URL`
+- **DB_URL_PROD** -- `production database URL`
+- **DB_URL_LOC** -- `local database URL`
 - **SECRET** -- `Secret key for verifying the token`
-
+- **ACCESS_TOKEN_SECRET** -- `Secret key for JWT access tokens`
 - **NODE_ENV** -- `Specifies the Server environment (development, local, production)`
 
 # **Usage**
 
-- `clone` this repository.
+## **Pre-requisites**
 
-- `cd` into project root directory.
+- [Node.js](https://nodejs.org/en/download/) (v16+ recommended)
+- [MongoDB](https://www.mongodb.com/try/download/community)
+- [TypeScript](https://www.typescriptlang.org/) (installed as dev dependency)
 
-- run `npm install` to install all dependencies. (you must have [pre-requisites](#pre-requisites))
+## **Development Setup**
 
-- Run `npm start` to start the server.
+1. **Clone** this repository:
+   ```bash
+   git clone https://github.com/kallyas/grocery-app.git
+   cd grocery-app
+   ```
 
-- Open up `Postman` and then test out the Endpoints.
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
 
-# **Pre-requisites**
+3. **Set up environment variables**:
+   Create a `.env` file in the root directory with the required environment variables listed above.
 
-- [Node Js](https://nodejs.org/en/download/)
-- [Mongo DB](https://www.mongodb.com/try/download/community)
+## **Building and Running**
 
-# **User CRUD Operations**
+### **Development Mode**
+Run with TypeScript directly using ts-node:
+```bash
+npm run dev
+```
+
+### **Production Build**
+Build the TypeScript code to JavaScript:
+```bash
+npm run build
+```
+
+### **Production Mode**
+Start the compiled JavaScript application:
+```bash
+npm start
+```
+
+## **Project Structure**
+
+```
+src/
+├── types/                  # TypeScript type definitions
+│   ├── user.types.ts      # User-related types
+│   ├── env.types.ts       # Environment types
+│   └── express.types.ts   # Express-related types
+├── server/
+│   ├── Controllers/       # API controllers
+│   ├── Models/           # Database models
+│   ├── Routes/           # API routes
+│   ├── config/           # Configuration files
+│   ├── helpers/          # Helper functions
+│   ├── middlewares.ts    # Express middlewares
+│   └── app.ts           # Express app setup
+└── index.ts             # Application entry point
+```
+
+# **API Documentation**
 
 # Create a User
 
